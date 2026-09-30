@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <title>Ezekiel Figueroa | Full Stack Web Developer</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            black: '#05070a',
+            card: '#0d1117',
+            cardHover: '#131923',
+            border: '#1e293b',
+            borderCyan: 'rgba(6, 182, 212, 0.35)',
+            cyan: '#00f0ff',
+            cyanHover: '#38bdf8',
+            cyanDark: '#0891b2',
+            accent: '#38bdf8'
+          }
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        },
+        boxShadow: {
+          cyanGlow: '0 0 25px -4px rgba(0, 240, 255, 0.35)',
+          subtleGlow: '0 4px 20px -2px rgba(6, 182, 212, 0.15)'
+        }
+      }
+    }
+  }
+</script>
+<!-- FontAwesome Icons for crisp UI accents -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="custom-enhancements">
+  body {
+    background-color: #06080d;
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 9999px;
+  }
+  .card-border-glow {
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    transition: all 0.3s ease;
+  }
+  .card-border-glow:hover {
+    border-color: rgba(0, 240, 255, 0.45);
+    box-shadow: 0 8px 30px -4px rgba(0, 240, 255, 0.18);
+  }
+</style>
+</head>
+<body class="bg-[#05070c] text-slate-200 antialiased selection:bg-cyan-500 selection:text-black">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 backdrop-blur-md bg-[#05070c]/90 border-b border-slate-800/80 px-4 py-3 sm:px-6">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+<!-- Brand Logo & Name -->
+<a class="flex items-center gap-2.5 group" href="#">
+  <div class="w-8 h-8 rounded bg-gradient-to-br from-slate-900 to-slate-800 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-bold text-xs shadow-[0_0_10px_rgba(6,182,212,0.25)] group-hover:border-cyan-400 transition-colors">
+    EF
+  </div>
+  <span class="font-bold text-sm sm:text-base text-slate-100 tracking-tight group-hover:text-cyan-400 transition-colors">
+    Ezekiel Figueroa
+  </span>
+</a>
+<!-- Desktop/Tablet Nav Links -->
+<nav class="hidden md:flex items-center gap-7 text-xs uppercase tracking-wider font-medium text-slate-400">
+  <a class="hover:text-cyan-400 transition-colors" href="#about">About</a>
+  <a class="hover:text-cyan-400 transition-colors" href="#projects">Projects</a>
+  <a class="hover:text-cyan-400 transition-colors" href="#tools">Tools</a>
+  <a class="hover:text-cyan-400 transition-colors" href="#contact">Contact</a>
+</nav>
+<!-- Mobile Menu Toggle Button -->
+<button aria-label="Toggle navigation menu" class="md:hidden w-9 h-9 rounded-lg border border-slate-800 bg-slate-900/80 flex items-center justify-center text-slate-300 hover:text-cyan-400 transition-colors" id="mobileMenuBtn">
+  <i class="fa-solid fa-bars text-sm" id="menuIcon"></i>
+</button>
+</div>
+<!-- Mobile Dropdown Navigation -->
+<div class="hidden md:hidden border-t border-slate-800/80 mt-3 pt-3 pb-2 flex flex-col gap-2.5 text-sm font-medium" id="mobileMenu">
+  <a class="px-3 py-2 rounded-md hover:bg-slate-900 text-slate-300 hover:text-cyan-400 transition-colors" href="#about">About</a>
+  <a class="px-3 py-2 rounded-md hover:bg-slate-900 text-slate-300 hover:text-cyan-400 transition-colors" href="#projects">Projects</a>
+  <a class="px-3 py-2 rounded-md hover:bg-slate-900 text-slate-300 hover:text-cyan-400 transition-colors" href="#tools">Tools</a>
+  <a class="px-3 py-2 rounded-md hover:bg-slate-900 text-slate-300 hover:text-cyan-400 transition-colors" href="#contact">Contact</a>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="relative pt-8 pb-14 px-4 sm:px-6 overflow-hidden" id="about">
+<!-- Background subtle ambient glow effect -->
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 bg-cyan-500/10 blur-[100px] pointer-events-none rounded-full"></div>
+<div class="max-w-3xl mx-auto flex flex-col items-center text-center">
+<!-- Profile Picture Frame -->
+<div class="relative mb-6">
+  <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1 bg-gradient-to-b from-cyan-400/40 via-cyan-500/10 to-transparent shadow-[0_0_30px_rgba(0,240,255,0.2)]">
+    <div class="w-full h-full rounded-full overflow-hidden border-2 border-slate-800 bg-[#0d131f] relative">
+      <img alt="Ezekiel Figueroa avatar" class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY-rRrv2YVnWreyVwb0XBtb-WTAqnTv1Qzeg1e7b70T10rb8yNxGBwUbMe2pb-gXgLO8p_-YwzD-Ji-qj6q2capaEmdhQ_WwvjrOeSVKw8Xg3ABtZJ03GL6ssZYw3NqbxZtRIwei4ETijcXxH7Kfvo_phqucZeoCV94sKbu4ia7fv5ozjXH0BpKbMPo9OmfFG25t_nQpyYcVSqxc95GTgSV_f9oAzT1m2ZOzx7AH2b1LKmDAp08t0"/>
+    </div>
+  </div>
+<!-- Status indicator badge -->
+<div class="absolute bottom-1 right-3 sm:right-5 bg-[#05070c] p-1 rounded-full border border-slate-800">
+  <span class="flex h-3 w-3 relative">
+    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+    <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+  </span>
+</div>
+</div>
+<!-- Introduction Info Card / Box -->
+<div class="w-full bg-[#0b0f17]/90 border border-slate-800/90 rounded-2xl p-6 sm:p-8 backdrop-blur-sm shadow-xl">
+  <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-1.5">
+    Hi I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-300">Ezekiel Figueroa</span>
+  </h1>
+  <p class="text-base sm:text-lg font-semibold text-cyan-400 mb-4 tracking-wide">
+    Full Stack Web Developer
+  </p>
+  <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto mb-6">
+    Diligent and reliable, with a strong commitment to completing tasks efficiently and accurately. Eager to gain hands-on experience and apply practical skills in the industry.
+  </p>
+<!-- CTAs: Resume & Inquiries -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
+<!-- Primary Download Resume CTA -->
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-wider bg-cyan-400 hover:bg-cyan-300 text-slate-950 transition-all shadow-[0_0_20px_rgba(0,240,255,0.35)] hover:shadow-[0_0_25px_rgba(0,240,255,0.6)] active:scale-95" download="" href="#">
+  <i class="fa-solid fa-file-arrow-down text-sm"></i>
+  <span>Download Resume</span>
+</a>
+<!-- Secondary Contact Button -->
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-medium text-xs uppercase tracking-wider text-slate-300 hover:text-white bg-slate-800/60 hover:bg-slate-800 border border-slate-700/80 transition-all active:scale-95" href="#contact">
+  <span>Get in Touch</span>
+  <i class="fa-solid fa-arrow-right text-xs text-cyan-400"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: ProjectsSection -->
+<section class="py-12 px-4 sm:px-6" id="projects">
+  <div class="max-w-6xl mx-auto">
+<!-- Section Badge -->
+<div class="flex justify-center mb-10">
+  <span class="inline-flex items-center px-4 py-1 rounded text-[11px] font-bold tracking-widest uppercase text-cyan-400 border border-cyan-500/40 bg-cyan-950/20 shadow-[0_0_12px_rgba(6,182,212,0.2)]">
+    PROJECTS
+  </span>
+</div>
+<!-- Project Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- Project 1: E-commerce API Documentation -->
+<div class="bg-[#0b0e14] rounded-xl overflow-hidden card-border-glow flex flex-col justify-between group">
+  <div>
+<!-- Visual Thumbnail -->
+<div class="h-44 bg-gradient-to-br from-blue-900/40 via-indigo-950/60 to-slate-950 flex items-center justify-center p-4 border-b border-slate-800 relative overflow-hidden">
+  <div class="w-full h-full rounded-lg border border-cyan-500/20 bg-slate-900/60 flex items-center justify-center text-cyan-400 flex-col gap-2">
+    <i class="fa-solid fa-network-wired text-3xl group-hover:scale-110 transition-transform"></i>
+    <span class="text-[10px] font-mono tracking-wider text-slate-300">API Documentation</span>
+  </div>
+</div>
+<!-- Card Details -->
+<div class="p-5">
+  <h3 class="font-bold text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors mb-2.5">
+    E-commerce API Documentation
+  </h3>
+  <p class="text-xs text-slate-400 leading-relaxed">
+    Dynamic E-Commerce Workflow Management. The system features dynamic routes for order processing, real-time inventory updates, and secures user authentication. It also supports seamless automated order reporting and comprehensive product management. Documented Backend API published publicly using Postman.
+  </p>
+</div>
+</div>
+<!-- Action Link -->
+<div class="p-5 pt-0">
+  <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors" href="#">
+    <span>View Project</span>
+    <span class="transition-transform group-hover:translate-x-1">→</span>
+  </a>
+</div>
+</div>
+<!-- Project 2: Course Booking API Documentation -->
+<div class="bg-[#0b0e14] rounded-xl overflow-hidden card-border-glow flex flex-col justify-between group">
+  <div>
+    <div class="h-44 bg-gradient-to-br from-indigo-900/40 via-purple-950/60 to-slate-950 flex items-center justify-center p-4 border-b border-slate-800 relative">
+      <div class="w-full h-full rounded-lg border border-cyan-500/20 bg-slate-900/60 flex items-center justify-center text-cyan-400 flex-col gap-2">
+        <i class="fa-solid fa-graduation-cap text-3xl group-hover:scale-110 transition-transform"></i>
+        <span class="text-[10px] font-mono tracking-wider text-slate-300">Course API Flow</span>
+      </div>
+    </div>
+    <div class="p-5">
+      <h3 class="font-bold text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors mb-2.5">
+        Course Booking API Documentation
+      </h3>
+      <p class="text-xs text-slate-400 leading-relaxed">
+        RESTful API for managing course enrollments, featuring user registration, authentication, and retrieval of user details. Supports course creation, updates, archiving, activation, and student enrollment. Publicly documented using Postman.
+      </p>
+    </div>
+  </div>
+  <div class="p-5 pt-0">
+    <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors" href="#">
+      <span>View Project</span>
+      <span class="transition-transform group-hover:translate-x-1">→</span>
+    </a>
+  </div>
+</div>
+<!-- Project 3: Course booking App -->
+<div class="bg-[#0b0e14] rounded-xl overflow-hidden card-border-glow flex flex-col justify-between group">
+  <div>
+    <div class="h-44 bg-gradient-to-br from-cyan-950/50 via-slate-900 to-slate-950 flex items-center justify-center p-4 border-b border-slate-800 relative">
+      <div class="w-full h-full rounded-lg border border-cyan-500/20 bg-slate-900/60 flex items-center justify-center text-cyan-400 flex-col gap-2">
+        <i class="fa-solid fa-chalkboard-user text-3xl group-hover:scale-110 transition-transform"></i>
+        <span class="text-[10px] font-mono tracking-wider text-slate-300">MERN App</span>
+      </div>
+    </div>
+    <div class="p-5">
+      <h3 class="font-bold text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors mb-2.5">
+        Course booking App
+      </h3>
+      <p class="text-xs text-slate-400 leading-relaxed">
+        A MERN-stack course enrollment system featuring user registration, authentication, and profile management. Authenticated users can create, update, archive, and activate courses. The platform also allows users to browse available courses and enroll seamlessly.
+      </p>
+    </div>
+  </div>
+  <div class="p-5 pt-0">
+    <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors" href="#">
+      <span>View Project</span>
+      <span class="transition-transform group-hover:translate-x-1">→</span>
+    </a>
+  </div>
+</div>
+<!-- Project 4: E-commerce App -->
+<div class="bg-[#0b0e14] rounded-xl overflow-hidden card-border-glow flex flex-col justify-between group">
+  <div>
+    <div class="h-44 bg-gradient-to-br from-emerald-950/40 via-cyan-950/50 to-slate-950 flex items-center justify-center p-4 border-b border-slate-800 relative">
+      <div class="w-full h-full rounded-lg border border-cyan-500/20 bg-slate-900/60 flex items-center justify-center text-cyan-400 flex-col gap-2">
+        <i class="fa-solid fa-cart-shopping text-3xl group-hover:scale-110 transition-transform"></i>
+        <span class="text-[10px] font-mono tracking-wider text-slate-300">Store Platform</span>
+      </div>
+    </div>
+    <div class="p-5">
+      <h3 class="font-bold text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors mb-2.5">
+        E-commerce App
+      </h3>
+      <p class="text-xs text-slate-400 leading-relaxed">
+        MERN E-Commerce Platform. The platform features dynamic product catalog with filtering and sorting, real-time search, seamless cart updates, secure checkout, and a comprehensive admin dashboard with real-time analytics and user management capabilities.
+      </p>
+    </div>
+  </div>
+  <div class="p-5 pt-0">
+    <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors" href="#">
+      <span>View Project</span>
+      <span class="transition-transform group-hover:translate-x-1">→</span>
+    </a>
+  </div>
+</div>
+<!-- Project 5: Airline Booking System Mockup -->
+<div class="bg-[#0b0e14] rounded-xl overflow-hidden card-border-glow flex flex-col justify-between group">
+  <div>
+    <div class="h-44 bg-gradient-to-br from-sky-950/40 via-slate-900 to-slate-950 flex items-center justify-center p-4 border-b border-slate-800 relative">
+      <div class="w-full h-full rounded-lg border border-cyan-500/20 bg-slate-900/60 flex items-center justify-center text-cyan-400 flex-col gap-2">
+        <i class="fa-solid fa-plane-departure text-3xl group-hover:scale-110 transition-transform"></i>
+        <span class="text-[10px] font-mono tracking-wider text-slate-300">UI/UX Mockup</span>
+      </div>
+    </div>
+    <div class="p-5">
+      <h3 class="font-bold text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors mb-2.5">
+        Airline Booking System Mockup
+      </h3>
+      <p class="text-xs text-slate-400 leading-relaxed">
+        Side Project: Conceptual design showcasing an intuitive UI for flight search, seat selection, and booking confirmation, focusing on user experience and workflow efficiency.
+      </p>
+    </div>
+  </div>
+  <div class="p-5 pt-0">
+    <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors" href="#">
+      <span>View Project</span>
+      <span class="transition-transform group-hover:translate-x-1">→</span>
+    </a>
+  </div>
+</div>
+<!-- Project 6: Airline Booking System Prototype -->
+<div class="bg-[#0b0e14] rounded-xl overflow-hidden card-border-glow flex flex-col justify-between group">
+  <div>
+    <div class="h-44 bg-gradient-to-br from-blue-950/40 via-cyan-950/40 to-slate-950 flex items-center justify-center p-4 border-b border-slate-800 relative">
+      <div class="w-full h-full rounded-lg border border-cyan-500/20 bg-slate-900/60 flex items-center justify-center text-cyan-400 flex-col gap-2">
+        <i class="fa-solid fa-ticket text-3xl group-hover:scale-110 transition-transform"></i>
+        <span class="text-[10px] font-mono tracking-wider text-slate-300">Interactive Prototype</span>
+      </div>
+    </div>
+    <div class="p-5">
+      <h3 class="font-bold text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors mb-2.5">
+        Airline Booking System Prototype
+      </h3>
+      <p class="text-xs text-slate-400 leading-relaxed">
+        Side Project: Interactive prototype simulating end-to-end airline booking functionalities, including flight search, reservation, payment processing, and real-time ticket management.
+      </p>
+    </div>
+  </div>
+  <div class="p-5 pt-0">
+    <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors" href="#">
+      <span>View Project</span>
+      <span class="transition-transform group-hover:translate-x-1">→</span>
+    </a>
+  </div>
+</div>
+<!-- Project 7: Short Courses Capstone (A) -->
+<div class="bg-[#0b0e14] rounded-xl overflow-hidden card-border-glow flex flex-col justify-between group">
+  <div>
+    <div class="h-44 bg-gradient-to-br from-slate-800/50 via-slate-900 to-slate-950 flex items-center justify-center p-4 border-b border-slate-800 relative">
+      <div class="w-full h-full rounded-lg border border-cyan-500/20 bg-slate-900/60 flex items-center justify-center text-cyan-400 flex-col gap-2">
+        <i class="fa-solid fa-laptop-code text-3xl group-hover:scale-110 transition-transform"></i>
+        <span class="text-[10px] font-mono tracking-wider text-slate-300">Capstone Project</span>
+      </div>
+    </div>
+    <div class="p-5">
+      <h3 class="font-bold text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors mb-2.5">
+        Short Courses Capstone
+      </h3>
+      <p class="text-xs text-slate-400 leading-relaxed">
+        Placeholder for your Short courses capstone project with comprehensive full stack features and responsive presentation.
+      </p>
+    </div>
+  </div>
+  <div class="p-5 pt-0">
+    <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors" href="#">
+      <span>View Project</span>
+      <span class="transition-transform group-hover:translate-x-1">→</span>
+    </a>
+  </div>
+</div>
+<!-- Project 8: Short Courses Capstone (B) -->
+<div class="bg-[#0b0e14] rounded-xl overflow-hidden card-border-glow flex flex-col justify-between group">
+  <div>
+    <div class="h-44 bg-gradient-to-br from-slate-800/50 via-cyan-950/30 to-slate-950 flex items-center justify-center p-4 border-b border-slate-800 relative">
+      <div class="w-full h-full rounded-lg border border-cyan-500/20 bg-slate-900/60 flex items-center justify-center text-cyan-400 flex-col gap-2">
+        <i class="fa-solid fa-code-merge text-3xl group-hover:scale-110 transition-transform"></i>
+        <span class="text-[10px] font-mono tracking-wider text-slate-300">Capstone Final</span>
+      </div>
+    </div>
+    <div class="p-5">
+      <h3 class="font-bold text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors mb-2.5">
+        Short Courses Capstone
+      </h3>
+      <p class="text-xs text-slate-400 leading-relaxed">
+        Placeholder for your Short courses capstone project with scalable architecture, database schema, and live frontend.
+      </p>
+    </div>
+  </div>
+  <div class="p-5 pt-0">
+    <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors" href="#">
+      <span>View Project</span>
+      <span class="transition-transform group-hover:translate-x-1">→</span>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ProjectsSection -->
+<!-- BEGIN: ToolsSection -->
+<section class="py-12 px-4 sm:px-6" id="tools">
+  <div class="max-w-6xl mx-auto">
+<!-- Section Badge -->
+<div class="flex justify-center mb-10">
+  <span class="inline-flex items-center px-4 py-1 rounded text-[11px] font-bold tracking-widest uppercase text-cyan-400 border border-cyan-500/40 bg-cyan-950/20 shadow-[0_0_12px_rgba(6,182,212,0.2)]">
+    TOOLS
+  </span>
+</div>
+<!-- Categories Container -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Category 01: Front end -->
+<div class="bg-[#0b0f17] rounded-xl p-6 border border-slate-800/90 relative overflow-hidden flex flex-col justify-between">
+  <div>
+    <div class="flex items-center justify-between text-xs mb-3 text-cyan-400 font-semibold tracking-wider">
+      <span class="flex items-center gap-1.5">
+        <span class="text-cyan-400">◆</span> CATEGORY 01
+      </span>
+      <span class="text-slate-500 font-normal">3 Technologies</span>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Front end</h3>
+    <p class="text-xs text-slate-400 leading-relaxed mb-6">
+      Foundational building blocks for responsive and structural web interfaces.
+    </p>
+<!-- Tech Pills List -->
+<div class="space-y-2.5">
+  <div class="flex items-center justify-between p-2.5 rounded-lg bg-[#070a10] border border-slate-800">
+    <span class="text-xs font-semibold text-slate-200">HTML</span>
+    <span class="text-[10px] px-2 py-0.5 rounded border border-cyan-500/40 text-cyan-400 bg-cyan-950/30">Semantic Markup</span>
+  </div>
+  <div class="flex items-center justify-between p-2.5 rounded-lg bg-[#070a10] border border-slate-800">
+    <span class="text-xs font-semibold text-slate-200">CSS</span>
+    <span class="text-[10px] px-2 py-0.5 rounded border border-cyan-500/40 text-cyan-400 bg-cyan-950/30">Responsive Styling</span>
+  </div>
+  <div class="flex items-center justify-between p-2.5 rounded-lg bg-[#070a10] border border-slate-800">
+    <span class="text-xs font-semibold text-slate-200">Bootstrap</span>
+    <span class="text-[10px] px-2 py-0.5 rounded border border-cyan-500/40 text-cyan-400 bg-cyan-950/30">Component Framework</span>
+  </div>
+</div>
+</div>
+</div>
+<!-- Category 02: Back End -->
+<div class="bg-[#0b0f17] rounded-xl p-6 border border-slate-800/90 relative overflow-hidden flex flex-col justify-between">
+  <div>
+    <div class="flex items-center justify-between text-xs mb-3 text-cyan-400 font-semibold tracking-wider">
+      <span class="flex items-center gap-1.5">
+        <span class="text-cyan-400">◆</span> CATEGORY 02
+      </span>
+      <span class="text-slate-500 font-normal">5 Technologies</span>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Back End</h3>
+    <p class="text-xs text-slate-400 leading-relaxed mb-6">
+      Technologies used for server-side development, database management, application logic, and full-stack web applications.
+    </p>
+<!-- Tech Pills List -->
+<div class="space-y-2.5">
+  <div class="flex items-center justify-between p-2.5 rounded-lg bg-[#070a10] border border-slate-800">
+    <span class="text-xs font-semibold text-slate-200">MongoDB</span>
+    <span class="text-[10px] px-2 py-0.5 rounded border border-cyan-500/40 text-cyan-400 bg-cyan-950/30">NoSQL Database</span>
+  </div>
+  <div class="flex items-center justify-between p-2.5 rounded-lg bg-[#070a10] border border-slate-800">
+    <span class="text-xs font-semibold text-slate-200">ExpressJS</span>
+    <span class="text-[10px] px-2 py-0.5 rounded border border-cyan-500/40 text-cyan-400 bg-cyan-950/30">Web Framework</span>
+  </div>
+  <div class="flex items-center justify-between p-2.5 rounded-lg bg-[#070a10] border border-slate-800">
+    <span class="text-xs font-semibold text-slate-200">React</span>
+    <span class="text-[10px] px-2 py-0.5 rounded border border-cyan-500/40 text-cyan-400 bg-cyan-950/30">UI Library</span>
+  </div>
+  <div class="flex items-center justify-between p-2.5 rounded-lg bg-[#070a10] border border-slate-800">
+    <span class="text-xs font-semibold text-slate-200">NodeJS</span>
+    <span class="text-[10px] px-2 py-0.5 rounded border border-cyan-500/40 text-cyan-400 bg-cyan-950/30">Runtime</span>
+  </div>
+  <div class="flex items-center justify-between p-2.5 rounded-lg bg-[#070a10] border border-slate-800">
+    <span class="text-xs font-semibold text-slate-200">MySQL</span>
+    <span class="text-[10px] px-2 py-0.5 rounded border border-cyan-500/40 text-cyan-400 bg-cyan-950/30">SQL Database</span>
+  </div>
+</div>
+</div>
+</div>
+<!-- Category 03: Other Tools -->
+<div class="bg-[#0b0f17] rounded-xl p-6 border border-slate-800/90 relative overflow-hidden flex flex-col justify-between">
+  <div>
+    <div class="flex items-center justify-between text-xs mb-3 text-cyan-400 font-semibold tracking-wider">
+      <span class="flex items-center gap-1.5">
+        <span class="text-cyan-400">◆</span> CATEGORY 03
+      </span>
+      <span class="text-slate-500 font-normal">2 Utilities</span>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Other Tools</h3>
+    <p class="text-xs text-slate-400 leading-relaxed mb-6">
+      Essential environment workflows, version control, and lightweight text editing.
+    </p>
+<!-- Tech Pills List -->
+<div class="space-y-2.5">
+  <div class="flex items-center justify-between p-2.5 rounded-lg bg-[#070a10] border border-slate-800">
+    <span class="text-xs font-semibold text-slate-200">Git</span>
+    <span class="text-[10px] px-2 py-0.5 rounded border border-cyan-500/40 text-cyan-400 bg-cyan-950/30">Version Control</span>
+  </div>
+  <div class="flex items-center justify-between p-2.5 rounded-lg bg-[#070a10] border border-slate-800">
+    <span class="text-xs font-semibold text-slate-200">Sublime</span>
+    <span class="text-[10px] px-2 py-0.5 rounded border border-cyan-500/40 text-cyan-400 bg-cyan-950/30">Text Editor</span>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ToolsSection -->
+<!-- BEGIN: ContactSection -->
+<section class="py-14 px-4 sm:px-6" id="contact">
+  <div class="max-w-xl mx-auto">
+<!-- Section Badge -->
+<div class="flex justify-center mb-8">
+  <span class="inline-flex items-center px-4 py-1 rounded text-[11px] font-bold tracking-widest uppercase text-cyan-400 border border-cyan-500/40 bg-cyan-950/20 shadow-[0_0_12px_rgba(6,182,212,0.2)]">
+    CONTACT
+  </span>
+</div>
+<!-- Contact Form Container -->
+<div class="bg-[#0b0f17] border border-slate-800/90 rounded-2xl p-6 sm:p-8 shadow-2xl relative">
+  <form class="space-y-5" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+<!-- Full Name Field -->
+<div>
+  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 flex items-center gap-1.5">
+    <span class="text-cyan-400">◆</span> FULL NAME
+  </label>
+  <input class="w-full bg-[#131923] border border-slate-800 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-sm text-slate-100 placeholder-slate-500 rounded-lg px-3.5 py-2.5 transition-colors" placeholder="Jane Doe" required="" type="text"/>
+</div>
+<!-- Email Field -->
+<div>
+  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 flex items-center gap-1.5">
+    <span class="text-cyan-400">◆</span> YOUR EMAIL
+  </label>
+  <input class="w-full bg-[#131923] border border-slate-800 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-sm text-slate-100 placeholder-slate-500 rounded-lg px-3.5 py-2.5 transition-colors" placeholder="jane@example.com" required="" type="email"/>
+</div>
+<!-- Message Field -->
+<div>
+  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2 flex items-center gap-1.5">
+    <span class="text-cyan-400">◆</span> MESSAGE
+  </label>
+  <textarea class="w-full bg-[#131923] border border-slate-800 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-sm text-slate-100 placeholder-slate-500 rounded-lg px-3.5 py-2.5 transition-colors resize-none" placeholder="message" required="" rows="4"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-2">
+  <button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-wider bg-cyan-400 hover:bg-cyan-300 text-slate-950 transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)] active:scale-95 cursor-pointer" type="submit">
+    <span>Send Message</span>
+    <span>→</span>
+  </button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- END: ContactSection -->
+<!-- BEGIN: MainFooter -->
+<footer class="py-10 border-t border-slate-900 text-center text-xs tracking-wider text-slate-500">
+  <p>© 2026 EZEKIEL FIGUEROA.</p>
+</footer>
+<!-- END: MainFooter -->
+<!-- BEGIN: Scripts -->
+<script data-purpose="mobile-navigation-behavior">
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.replace('fa-bars', 'fa-xmark');
+      } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.replace('fa-xmark', 'fa-bars');
+      }
+    });
+
+      // Close menu on link click
+    const navLinks = mobileMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.replace('fa-xmark', 'fa-bars');
+      });
+    });
+  }
+</script>
+<!-- END: Scripts -->
+</body></html>
